@@ -16,7 +16,7 @@ struct form {
 		string address;   //单位地址
 		string telephone;    //电话
 	};
-
+  
 	struct Cargo{
 		string name;       //货物名称
 		string type;       //包装类型
