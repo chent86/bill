@@ -6,9 +6,9 @@ using namespace std;
 struct form {
 
 	struct Date {
-		int year;
-		int month;
-		int day;
+		string year;
+		string month;
+		string day;
 	};
 
 	struct Person {
@@ -35,11 +35,11 @@ struct form {
 	};
 
 	struct Total_payment{
-		int wan;           //万
-		int thousand;      //千
-		int hundred;       //百
-		int ten;           //十
-		int yuan;          //元   
+		string wan;           //万
+		string thousand;      //千
+		string hundred;       //百
+		string ten;           //十
+		string yuan;          //元   
 	};
 	
 	string id;           //单号
