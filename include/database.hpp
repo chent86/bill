@@ -17,7 +17,7 @@ public:
 
 	void insert(form& m_form, string table_name);   //save new form  table_name should be English
 
-	void check(form& m_form, string id);		 //check old form with id
+	void check(form& m_form, string table_name, string id);		 //check old form with id
 
 private:
    sqlite3 *db;
