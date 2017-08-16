@@ -1,4 +1,4 @@
-#include "database.hpp"
+#include "../include/database.hpp"
 
 string s;
 
@@ -44,7 +44,7 @@ void database::insert(form& m_form, string table_name) {
   m_form.expense.insurance + "','" + m_form.expense.total + "'," + 
   m_form.pay.wan + "," + m_form.pay.thousand + "," + 
   m_form.pay.hundred + "," + m_form.pay.ten + "," + 
-  m_form.pay.yuan s+ ",'" + m_form.document_maker + "','" + m_form.consignee + "');";
+  m_form.pay.yuan+ ",'" + m_form.document_maker + "','" + m_form.consignee + "');";
 
   sql = tmp.c_str();
   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
