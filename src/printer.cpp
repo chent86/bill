@@ -158,7 +158,7 @@ void printer::print(form& m_form) {
 		file << format[i];    
 
 	file.close();
-	// system("powershell.exe -noexit \"Get-Content .\\1.txt | Set-Content -Encoding Ascii 2.txt\"");
-	// string tmp = "print /d:\\\\" + computer_name + "\\" + printer_name + " 2.txt";
-	// system(tmp.c_str());
+	system("PowerShell -Command \"& {get-content 1.txt -encoding utf8 | set-content 2.txt -encoding unicode}\"");
+	string tmp = "print /d:\\\\" + computer_name + "\\" + printer_name + " 2.txt";
+	system(tmp.c_str());
 }
