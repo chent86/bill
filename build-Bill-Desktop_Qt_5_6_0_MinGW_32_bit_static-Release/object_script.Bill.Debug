@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\bill.o
+./debug\store.o
+./debug\find.o
+./debug\print.o
+./debug\bill_plugin_import.o
+./debug\moc_bill.o
+./debug\moc_store.o
+./debug\moc_find.o
+./debug\moc_print.o
+);

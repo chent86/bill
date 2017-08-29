@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\bill.o
+./release\store.o
+./release\find.o
+./release\print.o
+./release\bill_plugin_import.o
+./release\moc_bill.o
+./release\moc_store.o
+./release\moc_find.o
+./release\moc_print.o
+);
