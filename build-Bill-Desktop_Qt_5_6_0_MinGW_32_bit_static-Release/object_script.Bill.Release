@@ -4,10 +4,7 @@ INPUT(
 ./release\store.o
 ./release\find.o
 ./release\print.o
-./release\database.o
 ./release\printer.o
-./release\sqlite3.o
-./release\shell.o
 ./release\bill_plugin_import.o
 ./release\moc_bill.o
 ./release\moc_store.o

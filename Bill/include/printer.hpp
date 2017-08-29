@@ -9,7 +9,7 @@ using namespace std;
 
 class printer{
 public:
-    printer(string computer_name, string printer_name, string file_name);
+    printer(string computer_name, string printer_name);
 
 	~printer();
 

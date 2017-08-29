@@ -5,7 +5,7 @@
 #include "../include/store.h"
 #include "../include/find.h"
 #include "../include/print.h"
-#include "../include/database/database.hpp"
+//#include "../include/database/database.hpp"
 #include "../include/printer.hpp"
 
 namespace Ui {
@@ -33,7 +33,7 @@ private slots:
 private:
     Ui::Bill *ui;
     printer *m_printer;
-    database *m_database;
+//    database *m_database;
     Store *store_tab;
     Find *find_tab;
     Print *print_tab;

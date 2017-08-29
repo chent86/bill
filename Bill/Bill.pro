@@ -17,10 +17,9 @@ SOURCES += src/main.cpp\
     src/store.cpp \
     src/find.cpp \
     src/print.cpp \
-    src/database.cpp \
-    src/printer.cpp \
-    include/database/sqlite3.c \
-    include/database/shell.c
+#    include/database/sqlite3.c \
+#    include/database/shell.c
+    src/printer.cpp
 
 HEADERS  += include/bill.h \
     include/store.h \
@@ -28,9 +27,9 @@ HEADERS  += include/bill.h \
     include/print.h \
     include/defines.hpp \
     include/printer.hpp \
-    include/database/database.hpp \
-    include/database/sqlite3.h \
-    include/database/sqlite3ext.h
+#    include/database/database.hpp \
+#    include/database/sqlite3.h \
+#    include/database/sqlite3ext.h
 
 FORMS    += ui/bill.ui \
     ui/store.ui \

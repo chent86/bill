@@ -4,10 +4,7 @@ INPUT(
 ./debug\store.o
 ./debug\find.o
 ./debug\print.o
-./debug\database.o
 ./debug\printer.o
-./debug\sqlite3.o
-./debug\shell.o
 ./debug\bill_plugin_import.o
 ./debug\moc_bill.o
 ./debug\moc_store.o

@@ -52,8 +52,8 @@ Bill::Bill(QWidget *parent) :
                        this, SLOT(print()));
 
     //初始化数据库和打印者
-    m_database = new database;
-    m_printer = new printer("i don't know", "i don't know", "i don't know");
+//    m_database = new database;
+    m_printer = new printer("LAPTOP-SLG4Q8MV", "DASCOM");
 }
 
 void Bill::store(){
@@ -79,7 +79,7 @@ void Bill::print(){
 
 void Bill::store_database(){
     this->getTableInformation();
-    m_database->insert(m_form, "bill");
+//    m_database->insert(m_form, "bill");
 }
 
 void Bill::print_database(){
@@ -90,7 +90,7 @@ void Bill::print_database(){
 void Bill::find_database(){
     Bill *t_bill = new Bill;
     form t_form ;
-    m_database->check(t_form, "bill", find_tab->getId());
+//    m_database->check(t_form, "bill", find_tab->getId());
     t_bill->setTableInformation(t_form);
     t_bill->show();
 }
