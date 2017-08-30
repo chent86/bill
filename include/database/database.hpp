@@ -2,7 +2,7 @@
 #define DATABASE_HPP
 
 #include <stdio.h>
-#include "defines.hpp"
+#include "../defines.hpp"
 #include <string>
 #include "sqlite3.h" 
 using namespace std;

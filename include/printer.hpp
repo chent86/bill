@@ -4,6 +4,7 @@
 #include "defines.hpp"
 #include <string>
 #include <fstream>
+#include <vector>
 using namespace std;
 
 class printer{
@@ -17,6 +18,6 @@ public:
 private:
 	string computer_name;
 	string printer_name;
-}
+};
 
 #endif

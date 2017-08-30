@@ -29,8 +29,8 @@ void database::insert(form& m_form, string table_name) {
   "cargo_number, cargo_name, cargo_type, cargo_weight, cargo_volume, cargo_price, "+
 
   "note, freight, shuttle, others, pick_up, insurance, total,"+
-  "wan, thousand, hundred, ten, yuan, document_maker, consignee)" + "values(" +
-  m_form.id + ",'" + m_form.location + "','" + m_form.date.year + 
+  "wan, thousand, hundred, ten, yuan, document_maker, consignee)" + "values('" +
+  m_form.id + "','" + m_form.location + "','" + m_form.date.year + 
   m_form.date.month + m_form.date.day + "','" +
   m_form.receiver.company + "','" + m_form.receiver.landline_telephone + "','"+
   m_form.receiver.address + "','" + m_form.receiver.telephone+ "','" +
@@ -54,159 +54,159 @@ void database::check(form& m_form, string table_name, string id) {
   const char *sql[31];
   string tmp;
 
-  tmp = "select id from "+table_name+" where id="+id+";";
+  tmp = "select id from "+table_name+" where id='"+id+"';";
   sql[0] = tmp.c_str();
   rc = sqlite3_exec(db, sql[0], callback, 0, &zErrMsg);
   m_form.id = s;
 
-  tmp = "select location from "+table_name+" where id="+id+";";
+  tmp = "select location from "+table_name+" where id='"+id+"';";
   sql[1] = tmp.c_str();
   rc = sqlite3_exec(db, sql[1], callback, 0, &zErrMsg);
   m_form.location = s;
 
-  tmp = "select date from "+table_name+" where id="+id+";";
+  tmp = "select date from "+table_name+" where id='"+id+"';";
   sql[2] = tmp.c_str();
   rc = sqlite3_exec(db, sql[2], callback, 0, &zErrMsg);
-  m_form.date.year = s.substr(0,4);
-  m_form.date.month = s.substr(4,2);
-  m_form.date.day = s.substr(6,2);
+  m_form.date.year = s.substr(0,2);
+  m_form.date.month = s.substr(2,2);
+  m_form.date.day = s.substr(4,2);
 
-  tmp = "select receiver_company from "+table_name+" where id="+id+";";
+  tmp = "select receiver_company from "+table_name+" where id='"+id+"';";
   sql[3] = tmp.c_str();
   rc = sqlite3_exec(db, sql[3], callback, 0, &zErrMsg);
   m_form.receiver.company = s;
 
-  tmp = "select receiver_landline_telephone from "+table_name+" where id="+id+";";
+  tmp = "select receiver_landline_telephone from "+table_name+" where id='"+id+"';";
   sql[4] = tmp.c_str();
   rc = sqlite3_exec(db, sql[4], callback, 0, &zErrMsg);
   m_form.receiver.landline_telephone = s;
 
-  tmp = "select receiver_address from "+table_name+" where id="+id+";";
+  tmp = "select receiver_address from "+table_name+" where id='"+id+"';";
   sql[5] = tmp.c_str();
   rc = sqlite3_exec(db, sql[5], callback, 0, &zErrMsg);
   m_form.receiver.address = s;
 
-  tmp = "select receiver_telephone from "+table_name+" where id="+id+";";
+  tmp = "select receiver_telephone from "+table_name+" where id='"+id+"';";
   sql[6] = tmp.c_str();
   rc = sqlite3_exec(db, sql[6], callback, 0, &zErrMsg);
   m_form.receiver.telephone = s;
 
-  tmp = "select sender_company from "+table_name+" where id="+id+";";
+  tmp = "select sender_company from "+table_name+" where id='"+id+"';";
   sql[7] = tmp.c_str();
   rc = sqlite3_exec(db, sql[7], callback, 0, &zErrMsg);
   m_form.sender.company= s;
 
-  tmp = "select sender_landline_telephone from "+table_name+" where id="+id+";";
+  tmp = "select sender_landline_telephone from "+table_name+" where id='"+id+"';";
   sql[8] = tmp.c_str();
   rc = sqlite3_exec(db, sql[8], callback, 0, &zErrMsg);
   m_form.sender.landline_telephone= s;
 
-  tmp = "select sender_address from "+table_name+" where id="+id+";";
+  tmp = "select sender_address from "+table_name+" where id='"+id+"';";
   sql[9] = tmp.c_str();
   rc = sqlite3_exec(db, sql[9], callback, 0, &zErrMsg);
   m_form.sender.address= s;
 
-  tmp = "select sender_telephone from "+table_name+" where id="+id+";";
+  tmp = "select sender_telephone from "+table_name+" where id='"+id+"';";
   sql[10] = tmp.c_str();
   rc = sqlite3_exec(db, sql[10], callback, 0, &zErrMsg);
   m_form.sender.telephone= s;
 
-  tmp = "select cargo_number from "+table_name+" where id="+id+";";
+  tmp = "select cargo_number from "+table_name+" where id='"+id+"';";
   sql[11] = tmp.c_str();
   rc = sqlite3_exec(db, sql[11], callback, 0, &zErrMsg);
   m_form.cargo.number = s;
 
-  tmp = "select cargo_name from "+table_name+" where id="+id+";";
+  tmp = "select cargo_name from "+table_name+" where id='"+id+"';";
   sql[12] = tmp.c_str();
   rc = sqlite3_exec(db, sql[12], callback, 0, &zErrMsg);
   m_form.cargo.name = s;     
 
-  tmp = "select cargo_type from "+table_name+" where id="+id+";";
+  tmp = "select cargo_type from "+table_name+" where id='"+id+"';";
   sql[13] = tmp.c_str();
   rc = sqlite3_exec(db, sql[13], callback, 0, &zErrMsg);
   m_form.cargo.type = s;   
 
-  tmp = "select cargo_weight from "+table_name+" where id="+id+";";
+  tmp = "select cargo_weight from "+table_name+" where id='"+id+"';";
   sql[14] = tmp.c_str();
   rc = sqlite3_exec(db, sql[14], callback, 0, &zErrMsg);
   m_form.cargo.weight = s;  
 
-  tmp = "select cargo_volume from "+table_name+" where id="+id+";";
+  tmp = "select cargo_volume from "+table_name+" where id='"+id+"';";
   sql[15] = tmp.c_str();
   rc = sqlite3_exec(db, sql[15], callback, 0, &zErrMsg);
   m_form.cargo.volume = s;  
 
-  tmp = "select cargo_price from "+table_name+" where id="+id+";";
+  tmp = "select cargo_price from "+table_name+" where id='"+id+"';";
   sql[16] = tmp.c_str();
   rc = sqlite3_exec(db, sql[16], callback, 0, &zErrMsg);
   m_form.cargo.price = s; 
 
-  tmp = "select note from "+table_name+" where id="+id+";";
+  tmp = "select note from "+table_name+" where id='"+id+"';";
   sql[17] = tmp.c_str();
   rc = sqlite3_exec(db, sql[17], callback, 0, &zErrMsg);
   m_form.note = s;  
 
-  tmp = "select freight from "+table_name+" where id="+id+";";
+  tmp = "select freight from "+table_name+" where id='"+id+"';";
   sql[18] = tmp.c_str();
   rc = sqlite3_exec(db, sql[18], callback, 0, &zErrMsg);
   m_form.expense.freight = s;
 
-  tmp = "select shuttle from "+table_name+" where id="+id+";";
+  tmp = "select shuttle from "+table_name+" where id='"+id+"';";
   sql[19] = tmp.c_str();
   rc = sqlite3_exec(db, sql[19], callback, 0, &zErrMsg);
   m_form.expense.shuttle = s;  
 
-  tmp = "select others from "+table_name+" where id="+id+";";
+  tmp = "select others from "+table_name+" where id='"+id+"';";
   sql[20] = tmp.c_str();
   rc = sqlite3_exec(db, sql[20], callback, 0, &zErrMsg);
   m_form.expense.others = s;     
 
-  tmp = "select pick_up from "+table_name+" where id="+id+";";
+  tmp = "select pick_up from "+table_name+" where id='"+id+"';";
   sql[21] = tmp.c_str();
   rc = sqlite3_exec(db, sql[21], callback, 0, &zErrMsg);
   m_form.expense.pick_up = s; 
 
-  tmp = "select insurance from "+table_name+" where id="+id+";";
+  tmp = "select insurance from "+table_name+" where id='"+id+"';";
   sql[22] = tmp.c_str();
   rc = sqlite3_exec(db, sql[22], callback, 0, &zErrMsg);
   m_form.expense.insurance = s; 
 
-  tmp = "select total from "+table_name+" where id="+id+";";
+  tmp = "select total from "+table_name+" where id='"+id+"';";
   sql[23] = tmp.c_str();
   rc = sqlite3_exec(db, sql[23], callback, 0, &zErrMsg);
   m_form.expense.total = s;
 
-  tmp = "select wan from "+table_name+" where id="+id+";";
+  tmp = "select wan from "+table_name+" where id='"+id+"';";
   sql[24] = tmp.c_str();
   rc = sqlite3_exec(db, sql[24], callback, 0, &zErrMsg);
   m_form.pay.wan = s;
 
-  tmp = "select thousand from "+table_name+" where id="+id+";";
+  tmp = "select thousand from "+table_name+" where id='"+id+"';";
   sql[25] = tmp.c_str();
   rc = sqlite3_exec(db, sql[25], callback, 0, &zErrMsg);
   m_form.pay.thousand = s;
 
-  tmp = "select hundred from "+table_name+" where id="+id+";";
+  tmp = "select hundred from "+table_name+" where id='"+id+"';";
   sql[26] = tmp.c_str();
   rc = sqlite3_exec(db, sql[26], callback, 0, &zErrMsg);
   m_form.pay.hundred = s;
 
-  tmp = "select ten from "+table_name+" where id="+id+";";
+  tmp = "select ten from "+table_name+" where id='"+id+"';";
   sql[27] = tmp.c_str();
   rc = sqlite3_exec(db, sql[27], callback, 0, &zErrMsg);
   m_form.pay.ten = s;
 
-  tmp = "select yuan from "+table_name+" where id="+id+";";
+  tmp = "select yuan from "+table_name+" where id='"+id+"';";
   sql[28] = tmp.c_str();
   rc = sqlite3_exec(db, sql[28], callback, 0, &zErrMsg);
   m_form.pay.yuan = s;
 
-  tmp = "select document_maker from "+table_name+" where id="+id+";";
+  tmp = "select document_maker from "+table_name+" where id='"+id+"';";
   sql[29] = tmp.c_str();
   rc = sqlite3_exec(db, sql[29], callback, 0, &zErrMsg);
   m_form.document_maker = s;
 
-  tmp = "select consignee from "+table_name+" where id="+id+";";
+  tmp = "select consignee from "+table_name+" where id='"+id+"';";
   sql[30] = tmp.c_str();
   rc = sqlite3_exec(db, sql[30], callback, 0, &zErrMsg);
   m_form.consignee = s;
@@ -217,11 +217,11 @@ void database::new_table(string table_name) {
   const char *sql;
   string tmp;
   tmp = "CREATE TABLE "+table_name+
-        "(id              INT         ,"+     //单号
+        "(id              TEXT         ,"+     //单号
 
         "location         TEXT        ,"+     //到达站
 
-        "date             CHAR(8)     ,"+     //日期为字符串， 4+2+2
+        "date             CHAR(6)     ,"+     //日期为字符串， 2+2+2
 
         "receiver_company             TEXT       ,"+
         "receiver_landline_telephone  char(15)   ,"+

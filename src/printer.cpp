@@ -1,6 +1,6 @@
 #include "../include/printer.hpp"
 
-printer::printer(string computer_name, string printer_name, string file_name)
+printer::printer(string computer_name, string printer_name)
 :computer_name(computer_name), printer_name(printer_name) {}
 
 printer::~printer() {}
