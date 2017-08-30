@@ -12,10 +12,16 @@ class Find : public QDialog
 {
     Q_OBJECT
 
+signals:
+    void find_exec();
+
 public:
     explicit Find(QWidget *parent = 0);
-    string getId(){return m_id;}
+    string getId();
     ~Find();
+
+ private slots:
+    void setId();
 
 private:
     Ui::find *ui;

@@ -2,9 +2,11 @@
 #define BILL_H
 
 #include <QMainWindow>
-#include "store.h"
-#include "find.h"
-#include "print.h"
+#include "../include/store.h"
+#include "../include/find.h"
+#include "../include/print.h"
+#include "../include/database/database.hpp"
+#include "../include/printer.hpp"
 
 namespace Ui {
     class Bill;
@@ -17,6 +19,7 @@ class Bill : public QMainWindow
 public:
     explicit Bill(QWidget *parent = 0);
     void getTableInformation();
+    void setTableInformation(form& form);
     ~Bill();
 
 private slots:
@@ -24,10 +27,16 @@ private slots:
     void find();
     void print();
     void store_database();
+    void print_database();
+    void find_database();
 
 private:
     Ui::Bill *ui;
-    Bill *find_tab;
+    printer *m_printer;
+    database *m_database;
+    Store *store_tab;
+    Find *find_tab;
+    Print *print_tab;
     form m_form;
 };
 

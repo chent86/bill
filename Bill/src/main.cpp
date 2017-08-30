@@ -1,4 +1,4 @@
-#include "include/bill.h"
+#include "../include/bill.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

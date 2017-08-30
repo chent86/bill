@@ -1,4 +1,4 @@
-#include "include/print.h"
+#include "../include/print.h"
 #include "ui_print.h"
 
 Print::Print(QWidget *parent) :
@@ -8,6 +8,8 @@ Print::Print(QWidget *parent) :
     ui->setupUi(this);
     QObject::connect(ui->sure, SIGNAL(clicked()),
                        this, SLOT(close()));
+    QObject::connect(ui->sure, SIGNAL(clicked()),
+                       this, SIGNAL(print_exec()));
     QObject::connect(ui->cancel, SIGNAL(clicked()),
                        this, SLOT(close()));
 }

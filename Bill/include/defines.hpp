@@ -12,59 +12,59 @@ struct form {
 	};
 
 	struct Person {
-		string company;		 //¹«Ë¾
-		string landline_telephone;    //¹Ì¶¨µç»°
-		string address;   //µ¥Î»µØÖ·
-		string telephone;    //ÊÖ»ú
+		string company;		 //å…¬å¸
+		string landline_telephone;    //å›ºå®šç”µè¯
+		string address;   //å•ä½åœ°å€
+		string telephone;    //æ‰‹æœº
 	};
   
 	struct Cargo{
-		string number;     //»õÎï¼şÊı
-		string name;       //»õÎïÃû³Æ
-		string type;       //°ü×°ÀàĞÍ
-		string weight;     //ÖØÁ¿
-		string volume;     //Ìå»ı
-		string price;      //»õ±£¼ÛÖµ
+		string number;     //è´§ç‰©ä»¶æ•°
+		string name;       //è´§ç‰©åç§°
+		string type;       //åŒ…è£…ç±»å‹
+		string weight;     //é‡é‡
+		string volume;     //ä½“ç§¯
+		string price;      //è´§ä¿ä»·å€¼
 	};
 
 	struct Expense{
-		string freight;    //ÔË·Ñ
-		string shuttle;    //ËÍ»õ·Ñ
-		string others;     //ÆäËû·ÑÓÃ
-		string pick_up;    //Ìá»õ·Ñ
-		string insurance;  //±£ÏÕ·Ñ
-		string total;      //ºÏ¼Æ
+		string freight;    //è¿è´¹
+		string shuttle;    //é€è´§è´¹
+		string others;     //å…¶ä»–è´¹ç”¨
+		string pick_up;    //æè´§è´¹
+		string insurance;  //ä¿é™©è´¹
+		string total;      //åˆè®¡
 	};
 
 	struct Total_payment{
-		string wan;           //Íò
-		string thousand;      //Ç§
-		string hundred;       //°Ù
-		string ten;           //Ê®
-		string yuan;          //Ôª   
+		string wan;           //ä¸‡
+		string thousand;      //åƒ
+		string hundred;       //ç™¾
+		string ten;           //å
+		string yuan;          //å…ƒ   
 	};
 	
-	string id;           //µ¥ºÅ
+	string id;           //å•å·
 
-	string location;  //µ½´ïÕ¾
+	string location;  //åˆ°è¾¾ç«™
 
-	Date date;			 //ÈÕÆÚ
+	Date date;			 //æ—¥æœŸ
 
-	Person receiver;       //ÊÕ»õÈË
+	Person receiver;       //æ”¶è´§äºº
 
-	Person sender;     //·¢»õÈË
+	Person sender;     //å‘è´§äºº
 
-	Cargo cargo;   //»õÎïĞÅÏ¢
+	Cargo cargo;   //è´§ç‰©ä¿¡æ¯
 
-	string note;         //±¸×¢
+	string note;         //å¤‡æ³¨
 
-	Expense expense;	 //·ÑÓÃ£¨Ôª£©
+	Expense expense;	 //è´¹ç”¨ï¼ˆå…ƒï¼‰
 
-	Total_payment pay;   //ÔË·ÑºÏ¼Æ
+	Total_payment pay;   //è¿è´¹åˆè®¡
 
-	string document_maker;  //ÖÆµ¥ÈË
+	string document_maker;  //åˆ¶å•äºº
 
-	string consignee;     //Ìá»õÈË
+	string consignee;     //æè´§äºº
 
 };
 

@@ -1,4 +1,4 @@
-#include "include/store.h"
+#include "../include/store.h"
 #include "ui_store.h"
 
 Store::Store(QWidget *parent) :

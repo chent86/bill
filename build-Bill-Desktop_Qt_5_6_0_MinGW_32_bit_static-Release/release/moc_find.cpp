@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../Bill/include/find.h"
+#include "../../git/bill/Bill/include/find.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Find_t {
-    QByteArrayData data[1];
-    char stringdata0[5];
+    QByteArrayData data[4];
+    char stringdata0[22];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -29,10 +29,13 @@ struct qt_meta_stringdata_Find_t {
     )
 static const qt_meta_stringdata_Find_t qt_meta_stringdata_Find = {
     {
-QT_MOC_LITERAL(0, 0, 4) // "Find"
+QT_MOC_LITERAL(0, 0, 4), // "Find"
+QT_MOC_LITERAL(1, 5, 9), // "find_exec"
+QT_MOC_LITERAL(2, 15, 0), // ""
+QT_MOC_LITERAL(3, 16, 5) // "setId"
 
     },
-    "Find"
+    "Find\0find_exec\0\0setId"
 };
 #undef QT_MOC_LITERAL
 
@@ -42,21 +45,49 @@ static const uint qt_meta_data_Find[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   24,    2, 0x06 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags
+       3,    0,   25,    2, 0x08 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void,
+
+ // slots: parameters
+    QMetaType::Void,
 
        0        // eod
 };
 
 void Find::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Find *_t = static_cast<Find *>(_o);
+        Q_UNUSED(_t)
+        switch (_id) {
+        case 0: _t->find_exec(); break;
+        case 1: _t->setId(); break;
+        default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        void **func = reinterpret_cast<void **>(_a[1]);
+        {
+            typedef void (Find::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Find::find_exec)) {
+                *result = 0;
+                return;
+            }
+        }
+    }
     Q_UNUSED(_a);
 }
 
@@ -84,6 +115,21 @@ int Find::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 2;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void Find::find_exec()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

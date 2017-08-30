@@ -12,6 +12,9 @@ class Print : public QDialog
 {
     Q_OBJECT
 
+signals:
+    void print_exec();
+
 public:
     explicit Print(QWidget *parent = 0);
     ~Print();
