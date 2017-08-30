@@ -99,7 +99,7 @@ void printer::print(form& m_form) {
 	format.push_back(p_date);
 	format.push_back("\n\n                        ");
 	format.push_back(p_receiver_company);
-	format.push_back("                        ");
+	format.push_back("                  ");
 	format.push_back(p_receiver_landline_telephone);
 	format.push_back("\n                        ");
 	format.push_back(p_receiver_address);
@@ -107,7 +107,7 @@ void printer::print(form& m_form) {
 	format.push_back(p_receiver_telephone);
 	format.push_back("\n\n                        ");
 	format.push_back(p_sender_company);
-	format.push_back("                        ");
+	format.push_back("                  ");
 	format.push_back(p_sender_landline_telephone);
 	format.push_back("\n\n                        ");
 	format.push_back(p_sender_address);
@@ -158,7 +158,7 @@ void printer::print(form& m_form) {
 		file << format[i];    
 
 	file.close();
-	system("PowerShell -Command \"& {get-content 1.txt -encoding utf8 | set-content 2.txt -encoding unicode}\"");
-	string tmp = "print /d:\\\\" + computer_name + "\\" + printer_name + " 2.txt";
+	//system("PowerShell -Command \"& {get-content 1.txt -encoding utf8 | set-content 2.txt -encoding unicode}\"");
+	string tmp = "print /d:\\\\" + computer_name + "\\" + printer_name + " 1.txt";
 	system(tmp.c_str());
 }
