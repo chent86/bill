@@ -51,12 +51,13 @@ Bill::Bill(QWidget *parent) :
     QObject::connect(ui->print, SIGNAL(triggered()),
                        this, SLOT(print()));
 
-    //初始化数据库和打印者
-//    m_database = new database;
+    m_database= NULL;
     m_printer = new printer("LAPTOP-SLG4Q8MV", "DASCOM");
 }
 
 void Bill::store(){
+    if(m_database == NULL)
+        m_database = new database;
     this->store_tab = new Store;
     QObject::connect(store_tab, SIGNAL(store_exec()),
                        this, SLOT(store_database()));
@@ -64,6 +65,8 @@ void Bill::store(){
 }
 
 void Bill::find(){
+    if(m_database == NULL)
+        m_database = new database;
     this->find_tab = new Find;
     QObject::connect(find_tab, SIGNAL(find_exec()),
                        this, SLOT(find_database()));
@@ -79,7 +82,7 @@ void Bill::print(){
 
 void Bill::store_database(){
     this->getTableInformation();
-//    m_database->insert(m_form, "bill");
+    m_database->insert(m_form, "bill");
 }
 
 void Bill::print_database(){
@@ -90,7 +93,7 @@ void Bill::print_database(){
 void Bill::find_database(){
     Bill *t_bill = new Bill;
     form t_form ;
-//    m_database->check(t_form, "bill", find_tab->getId());
+    m_database->check(t_form, "bill", find_tab->getId());
     t_bill->setTableInformation(t_form);
     t_bill->show();
 }

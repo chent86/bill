@@ -11,13 +11,13 @@ MAKEFILE      = Makefile.Debug
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DUNICODE -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
+DEFINES       = -DUNICODE -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -pipe -fno-keep-inline-dllexport -g -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -std=gnu++0x -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\git\bill\Bill -I. -ID:\Qt-static\5.6.0-mingw32-rel-static\include -ID:\Qt-static\5.6.0-mingw32-rel-static\include\QtWidgets -ID:\Qt-static\5.6.0-mingw32-rel-static\include\QtGui -ID:\Qt-static\5.6.0-mingw32-rel-static\include\QtCore -Idebug -I. -ID:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\win32-g++ 
+INCPATH       = -I..\git\bill\Bill -I. -ID:\Qt-static\5.6.0-mingw32-rel-static\include -ID:\Qt-static\5.6.0-mingw32-rel-static\include\QtWidgets -ID:\Qt-static\5.6.0-mingw32-rel-static\include\QtGui -ID:\Qt-static\5.6.0-mingw32-rel-static\include\QtSql -ID:\Qt-static\5.6.0-mingw32-rel-static\include\QtCore -Idebug -I. -ID:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -static -Wl,-subsystem,windows -mthreads
-LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -LD:\Qt-static\5.6.0-mingw32-rel-static\lib -lqtmaind -lQt5Widgetsd -lQt5Guid -lQt5Cored -LD:\Qt-static\5.6.0-mingw32-rel-static\plugins\platforms -lqwindowsd -LD:\Qt-static\5.6.0-mingw32-rel-static\plugins\imageformats -lqddsd -lqicnsd -lqicod -lqtgad -lqtiffd -lqwbmpd -lqwebpd 
+LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -LD:\Qt-static\5.6.0-mingw32-rel-static\lib -lqtmaind -lQt5Widgetsd -lQt5Guid -lQt5Sqld -lQt5Cored -LD:\Qt-static\5.6.0-mingw32-rel-static\plugins\platforms -lqwindowsd -LD:\Qt-static\5.6.0-mingw32-rel-static\plugins\imageformats -lqddsd -lqicnsd -lqicod -lqtgad -lqtiffd -lqwbmpd -lqwebpd -LD:\Qt-static\5.6.0-mingw32-rel-static\plugins\sqldrivers -lqsqlited -lqsqlodbcd 
 QMAKE         = D:\Qt-static\5.6.0-mingw32-rel-static\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -49,6 +49,7 @@ SOURCES       = ..\git\bill\Bill\src\main.cpp \
 		..\git\bill\Bill\src\find.cpp \
 		..\git\bill\Bill\src\print.cpp \
 		..\git\bill\Bill\src\printer.cpp \
+		..\git\bill\Bill\src\database.cpp \
 		bill_plugin_import.cpp debug\moc_bill.cpp \
 		debug\moc_store.cpp \
 		debug\moc_find.cpp \
@@ -59,6 +60,7 @@ OBJECTS       = debug/main.o \
 		debug/find.o \
 		debug/print.o \
 		debug/printer.o \
+		debug/database.o \
 		debug/bill_plugin_import.o \
 		debug/moc_bill.o \
 		debug/moc_store.o \
@@ -70,12 +72,14 @@ DIST          =  ..\git\bill\Bill\include\bill.h \
 		..\git\bill\Bill\include\find.h \
 		..\git\bill\Bill\include\print.h \
 		..\git\bill\Bill\include\defines.hpp \
-		..\git\bill\Bill\include\printer.hpp ..\git\bill\Bill\src\main.cpp \
+		..\git\bill\Bill\include\printer.hpp \
+		..\git\bill\Bill\include\database.hpp ..\git\bill\Bill\src\main.cpp \
 		..\git\bill\Bill\src\bill.cpp \
 		..\git\bill\Bill\src\store.cpp \
 		..\git\bill\Bill\src\find.cpp \
 		..\git\bill\Bill\src\print.cpp \
 		..\git\bill\Bill\src\printer.cpp \
+		..\git\bill\Bill\src\database.cpp \
 		bill_plugin_import.cpp
 QMAKE_TARGET  = Bill
 DESTDIR        = debug\ #avoid trailing-slash linebreak
@@ -87,7 +91,7 @@ DESTDIR_TARGET = debug\Bill.exe
 first: all
 all: Makefile.Debug  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET): D:/Qt-static/5.6.0-mingw32-rel-static/lib/libQt5Widgetsd.a D:/Qt-static/5.6.0-mingw32-rel-static/lib/libQt5Guid.a D:/Qt-static/5.6.0-mingw32-rel-static/lib/libQt5Cored.a ui_bill.h ui_store.h ui_find.h ui_print.h $(OBJECTS) 
+$(DESTDIR_TARGET): D:/Qt-static/5.6.0-mingw32-rel-static/lib/libQt5Widgetsd.a D:/Qt-static/5.6.0-mingw32-rel-static/lib/libQt5Guid.a D:/Qt-static/5.6.0-mingw32-rel-static/lib/libQt5Sqld.a D:/Qt-static/5.6.0-mingw32-rel-static/lib/libQt5Cored.a ui_bill.h ui_store.h ui_find.h ui_print.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.Bill.Debug  $(LIBS)
 
 qmake: FORCE
@@ -99,7 +103,7 @@ dist:
 	$(ZIP) Bill.zip $(SOURCES) $(DIST) ..\git\bill\Bill\Bill.pro D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\spec_pre.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\qdevice.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\device_config.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\common\angle.conf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\qconfig.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dcore.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dcore_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dinput.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dinput_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dlogic.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dlogic_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dquick.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dquick_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickinput.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickinput_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickrender.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickrender_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3drender.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_3drender_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_axbase.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_axbase_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_axcontainer.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_axcontainer_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_axserver.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_axserver_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_bluetooth.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_bluetooth_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_bootstrap_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_clucene_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_concurrent.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_concurrent_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_core.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_core_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_dbus.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_dbus_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_designer.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_designer_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_designercomponents_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_gui.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_gui_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_help.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_help_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_location.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_location_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_multimedia.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_multimedia_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_multimediawidgets.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_multimediawidgets_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_network.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_network_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_nfc.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_nfc_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_opengl.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_opengl_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_openglextensions.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_openglextensions_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_platformsupport_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_positioning.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_positioning_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_printsupport.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_printsupport_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_qml.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_qml_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_qmldevtools_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_qmltest.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_qmltest_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_quick.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_quick_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_quickparticles_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_quickwidgets.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_script.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_script_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_scripttools.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_scripttools_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_sensors.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_sensors_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_serialbus.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_serialbus_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_serialport.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_serialport_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_sql.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_sql_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_svg.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_svg_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_testlib.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_testlib_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_uiplugin.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_uitools.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_uitools_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_webchannel.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_webchannel_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_websockets.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_websockets_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_widgets.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_widgets_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_winextras.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_winextras_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_xml.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_xml_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_xmlpatterns.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_xmlpatterns_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_lib_zlib_private.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_assimpsceneparser.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_dsengine.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_gltfsceneparser.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qdds.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qgenericbearer.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qicns.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qico.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qminimal.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qnativewifibearer.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qoffscreen.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qsqlite.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qsqlodbc.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qsvg.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qsvgicon.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtaudio_windows.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtga.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_mapbox.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_nokia.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_osm.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtiff.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtmedia_audioengine.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtmultimedia_m3u.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtpeakcanbus.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtposition_geoclue.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtposition_positionpoll.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtposition_serialnmea.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensorgestures_plugin.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensorgestures_shakeplugin.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensors_generic.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qttinycanbus.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qtuiotouchplugin.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qwbmp.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qwebp.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_qwindows.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\modules\qt_plugin_windowsprintersupport.pri D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\qt_functions.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\qt_config.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\win32\qt_config.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\win32-g++\qmake.conf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\spec_post.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\exclusive_builds.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\default_pre.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\win32\default_pre.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\resolve_config.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\exclusive_builds_post.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\default_post.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\build_pass.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\win32\rtti.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\precompile_header.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\warn_on.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\qt.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\resources.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\moc.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\link_ltcg.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\win32\opengl.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\uic.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\win32\windows.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\testcase_targets.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\exceptions.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\yacc.prf D:\Qt-static\5.6.0-mingw32-rel-static\mkspecs\features\lex.prf ..\git\bill\Bill\Bill.pro  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\bill.o debug\store.o debug\find.o debug\print.o debug\printer.o debug\bill_plugin_import.o debug\moc_bill.o debug\moc_store.o debug\moc_find.o debug\moc_print.o
+	-$(DEL_FILE) debug\main.o debug\bill.o debug\store.o debug\find.o debug\print.o debug\printer.o debug\database.o debug\bill_plugin_import.o debug\moc_bill.o debug\moc_store.o debug\moc_find.o debug\moc_print.o
 
 distclean: clean 
 	-$(DEL_FILE) C:\Users\admin\Desktop\build-Bill-Desktop_Qt_5_6_0_MinGW_32_bit_static-Release\bill_plugin_import.cpp
@@ -233,8 +237,15 @@ debug/moc_bill.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QMai
 		../git/bill/Bill/include/find.h \
 		../git/bill/Bill/include/print.h \
 		../git/bill/Bill/include/printer.hpp \
+		../git/bill/Bill/include/database.hpp \
+		../defines.hpp \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlDatabase \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqldatabase.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsql.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlQuery \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqlquery.h \
 		../git/bill/Bill/include/bill.h
-	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\bill.h -o debug\moc_bill.cpp
+	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\bill.h -o debug\moc_bill.cpp
 
 debug/moc_store.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QDialog \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/qdialog.h \
@@ -343,7 +354,7 @@ debug/moc_store.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QDi
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui/qtouchdevice.h \
 		../git/bill/Bill/include/defines.hpp \
 		../git/bill/Bill/include/store.h
-	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\store.h -o debug\moc_store.cpp
+	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\store.h -o debug\moc_store.cpp
 
 debug/moc_find.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QDialog \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/qdialog.h \
@@ -452,7 +463,7 @@ debug/moc_find.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QDia
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui/qtouchdevice.h \
 		../git/bill/Bill/include/defines.hpp \
 		../git/bill/Bill/include/find.h
-	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\find.h -o debug\moc_find.cpp
+	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\find.h -o debug\moc_find.cpp
 
 debug/moc_print.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QDialog \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/qdialog.h \
@@ -561,7 +572,7 @@ debug/moc_print.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QDi
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui/qtouchdevice.h \
 		../git/bill/Bill/include/defines.hpp \
 		../git/bill/Bill/include/print.h
-	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\print.h -o debug\moc_print.cpp
+	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\print.h -o debug\moc_print.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -707,6 +718,13 @@ debug/main.o: ../git/bill/Bill/src/main.cpp ../git/bill/Bill/include/bill.h \
 		../git/bill/Bill/include/find.h \
 		../git/bill/Bill/include/print.h \
 		../git/bill/Bill/include/printer.hpp \
+		../git/bill/Bill/include/database.hpp \
+		../defines.hpp \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlDatabase \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqldatabase.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsql.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlQuery \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqlquery.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QApplication \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/qapplication.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qcoreapplication.h \
@@ -1159,6 +1177,51 @@ debug/print.o: ../git/bill/Bill/src/print.cpp ../git/bill/Bill/include/print.h \
 debug/printer.o: ../git/bill/Bill/src/printer.cpp ../git/bill/Bill/include/printer.hpp \
 		../git/bill/Bill/include/defines.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\printer.o ..\git\bill\Bill\src\printer.cpp
+
+debug/database.o: ../git/bill/Bill/src/database.cpp ../git/bill/Bill/include/database.hpp \
+		../defines.hpp \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlDatabase \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqldatabase.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qstring.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qchar.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qglobal.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qconfig.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qfeatures.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qsystemdetection.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qprocessordetection.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qcompilerdetection.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qtypeinfo.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qtypetraits.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qisenum.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qsysinfo.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qlogging.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qflags.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qbasicatomic.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_bootstrap.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qgenericatomic.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_cxx11.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_gcc.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_msvc.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_armv7.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_armv6.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_armv5.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_ia64.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_x86.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qatomic_unix.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qglobalstatic.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qmutex.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qnumeric.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qversiontagging.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qbytearray.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qrefcount.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qnamespace.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qarraydata.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qstringbuilder.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsql.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlQuery \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqlquery.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\database.o ..\git\bill\Bill\src\database.cpp
 
 debug/bill_plugin_import.o: bill_plugin_import.cpp D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/QtPlugin \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qplugin.h \

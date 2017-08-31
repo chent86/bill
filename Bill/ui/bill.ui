@@ -251,7 +251,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -265,6 +265,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
      </property>
@@ -275,7 +280,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -289,6 +294,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
      </property>
@@ -299,7 +309,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -313,6 +323,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
      </property>
@@ -323,7 +338,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -337,6 +352,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
      </property>
@@ -347,7 +367,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -361,6 +381,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
      </property>
@@ -371,7 +396,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -385,6 +410,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
      </property>
@@ -395,7 +425,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -409,6 +439,11 @@
      <property name="text">
       <string/>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="textAlignment">
       <set>AlignCenter</set>
      </property>
@@ -419,7 +454,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="textAlignment">
@@ -435,6 +470,7 @@
      </property>
      <property name="font">
       <font>
+       <pointsize>12</pointsize>
        <stylestrategy>NoAntialias</stylestrategy>
        <kerning>true</kerning>
       </font>

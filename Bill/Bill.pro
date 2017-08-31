@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,7 +19,8 @@ SOURCES += src/main.cpp\
     src/print.cpp \
 #    include/database/sqlite3.c \
 #    include/database/shell.c
-    src/printer.cpp
+    src/printer.cpp \
+    src/database.cpp
 
 HEADERS  += include/bill.h \
     include/store.h \
@@ -27,6 +28,7 @@ HEADERS  += include/bill.h \
     include/print.h \
     include/defines.hpp \
     include/printer.hpp \
+    include/database.hpp
 #    include/database/database.hpp \
 #    include/database/sqlite3.h \
 #    include/database/sqlite3ext.h

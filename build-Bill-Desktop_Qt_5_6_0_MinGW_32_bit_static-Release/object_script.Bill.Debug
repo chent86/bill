@@ -5,6 +5,7 @@ INPUT(
 ./debug\find.o
 ./debug\print.o
 ./debug\printer.o
+./debug\database.o
 ./debug\bill_plugin_import.o
 ./debug\moc_bill.o
 ./debug\moc_store.o

@@ -5,6 +5,7 @@ INPUT(
 ./release\find.o
 ./release\print.o
 ./release\printer.o
+./release\database.o
 ./release\bill_plugin_import.o
 ./release\moc_bill.o
 ./release\moc_store.o

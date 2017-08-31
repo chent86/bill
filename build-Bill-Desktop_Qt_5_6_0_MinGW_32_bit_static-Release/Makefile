@@ -227,6 +227,7 @@ Makefile: ../git/bill/Bill/Bill.pro D:/Qt-static/5.6.0-mingw32-rel-static/mkspec
 		D:/Qt-static/5.6.0-mingw32-rel-static/lib/qtmain.prl \
 		D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Widgets.prl \
 		D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Gui.prl \
+		D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Sql.prl \
 		D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Core.prl \
 		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/platforms/qwindows.prl \
 		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qdds.prl \
@@ -235,7 +236,9 @@ Makefile: ../git/bill/Bill/Bill.pro D:/Qt-static/5.6.0-mingw32-rel-static/mkspec
 		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qtga.prl \
 		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qtiff.prl \
 		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qwbmp.prl \
-		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qwebp.prl
+		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qwebp.prl \
+		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/sqldrivers/qsqlite.prl \
+		D:/Qt-static/5.6.0-mingw32-rel-static/plugins/sqldrivers/qsqlodbc.prl
 	$(QMAKE) -spec win32-g++ -o Makefile ..\git\bill\Bill\Bill.pro
 D:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/features/spec_pre.prf:
 D:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/qdevice.pri:
@@ -405,6 +408,7 @@ D:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/features/lex.prf:
 D:/Qt-static/5.6.0-mingw32-rel-static/lib/qtmain.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Widgets.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Gui.prl:
+D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Sql.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/lib/Qt5Core.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/plugins/platforms/qwindows.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qdds.prl:
@@ -414,6 +418,8 @@ D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qtga.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qtiff.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qwbmp.prl:
 D:/Qt-static/5.6.0-mingw32-rel-static/plugins/imageformats/qwebp.prl:
+D:/Qt-static/5.6.0-mingw32-rel-static/plugins/sqldrivers/qsqlite.prl:
+D:/Qt-static/5.6.0-mingw32-rel-static/plugins/sqldrivers/qsqlodbc.prl:
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ -o Makefile ..\git\bill\Bill\Bill.pro
 

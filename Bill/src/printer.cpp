@@ -103,7 +103,7 @@ void printer::print(form& m_form) {
     format.push_back(p_receiver_landline_telephone);
     format.push_back("\n                        ");
     format.push_back(p_receiver_address);
-    format.push_back("                  ");
+    format.push_back("                        ");
     format.push_back(p_receiver_telephone);
     format.push_back("\n\n                        ");
     format.push_back(p_sender_company);
@@ -111,7 +111,7 @@ void printer::print(form& m_form) {
     format.push_back(p_sender_landline_telephone);
     format.push_back("\n\n                        ");
     format.push_back(p_sender_address);
-    format.push_back("                  ");
+    format.push_back("                        ");
     format.push_back(p_sender_telephone);
     format.push_back("\n\n\n                                                                               ");
     format.push_back(p_note);
