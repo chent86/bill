@@ -238,12 +238,12 @@ release/moc_bill.cpp: D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QM
 		../git/bill/Bill/include/print.h \
 		../git/bill/Bill/include/printer.hpp \
 		../git/bill/Bill/include/database.hpp \
-		../defines.hpp \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlDatabase \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqldatabase.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsql.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlQuery \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqlquery.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/QVariant \
 		../git/bill/Bill/include/bill.h
 	D:\Qt-static\5.6.0-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt-static/5.6.0-mingw32-rel-static/mkspecs/win32-g++ -IC:/Users/admin/Desktop/git/bill/Bill -ID:/Qt-static/5.6.0-mingw32-rel-static/include -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtGui -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql -ID:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore -I. ..\git\bill\Bill\include\bill.h -o release\moc_bill.cpp
 
@@ -719,12 +719,12 @@ release/main.o: ../git/bill/Bill/src/main.cpp ../git/bill/Bill/include/bill.h \
 		../git/bill/Bill/include/print.h \
 		../git/bill/Bill/include/printer.hpp \
 		../git/bill/Bill/include/database.hpp \
-		../defines.hpp \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlDatabase \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqldatabase.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsql.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlQuery \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqlquery.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/QVariant \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/QApplication \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtWidgets/qapplication.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qcoreapplication.h \
@@ -1179,7 +1179,7 @@ release/printer.o: ../git/bill/Bill/src/printer.cpp ../git/bill/Bill/include/pri
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\printer.o ..\git\bill\Bill\src\printer.cpp
 
 release/database.o: ../git/bill/Bill/src/database.cpp ../git/bill/Bill/include/database.hpp \
-		../defines.hpp \
+		../git/bill/Bill/include/defines.hpp \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlDatabase \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqldatabase.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qstring.h \
@@ -1220,7 +1220,38 @@ release/database.o: ../git/bill/Bill/src/database.cpp ../git/bill/Bill/include/d
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qstringbuilder.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsql.h \
 		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/QSqlQuery \
-		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqlquery.h
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtSql/qsqlquery.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/QVariant \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qvariant.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qlist.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qalgorithms.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qiterator.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qhashfunctions.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qpair.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qbytearraylist.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qstringlist.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qregexp.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qstringmatcher.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qmetatype.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qvarlengtharray.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qcontainerfwd.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qobjectdefs.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qobjectdefs_impl.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qmap.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qdebug.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qhash.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qtextstream.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qiodevice.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qobject.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qcoreevent.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qscopedpointer.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qobject_impl.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qlocale.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qshareddata.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qvector.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qpoint.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qset.h \
+		D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\database.o ..\git\bill\Bill\src\database.cpp
 
 release/bill_plugin_import.o: bill_plugin_import.cpp D:/Qt-static/5.6.0-mingw32-rel-static/include/QtCore/QtPlugin \

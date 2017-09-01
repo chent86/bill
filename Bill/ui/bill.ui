@@ -790,7 +790,7 @@
     </item>
     <item row="0" column="1">
      <property name="text">
-      <string/>
+      <string>0</string>
      </property>
      <property name="font">
       <font>
@@ -819,7 +819,7 @@
     </item>
     <item row="0" column="3">
      <property name="text">
-      <string/>
+      <string>0</string>
      </property>
      <property name="font">
       <font>
@@ -848,7 +848,7 @@
     </item>
     <item row="0" column="5">
      <property name="text">
-      <string/>
+      <string>0</string>
      </property>
      <property name="font">
       <font>
@@ -877,7 +877,7 @@
     </item>
     <item row="0" column="7">
      <property name="text">
-      <string/>
+      <string>0</string>
      </property>
      <property name="font">
       <font>
@@ -906,7 +906,7 @@
     </item>
     <item row="0" column="9">
      <property name="text">
-      <string/>
+      <string>0</string>
      </property>
      <property name="font">
       <font>

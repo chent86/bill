@@ -768,81 +768,91 @@ public:
         payment_table->setSortingEnabled(false);
         QTableWidgetItem *___qtablewidgetitem17 = payment_table->item(0, 0);
         ___qtablewidgetitem17->setText(QApplication::translate("Bill", "\345\220\210\350\256\241\357\274\210\345\244\247\345\206\231\357\274\211", 0));
-        QTableWidgetItem *___qtablewidgetitem18 = payment_table->item(0, 2);
-        ___qtablewidgetitem18->setText(QApplication::translate("Bill", "\344\270\207", 0));
-        QTableWidgetItem *___qtablewidgetitem19 = payment_table->item(0, 4);
-        ___qtablewidgetitem19->setText(QApplication::translate("Bill", "\344\273\237", 0));
-        QTableWidgetItem *___qtablewidgetitem20 = payment_table->item(0, 6);
-        ___qtablewidgetitem20->setText(QApplication::translate("Bill", "\344\275\260", 0));
-        QTableWidgetItem *___qtablewidgetitem21 = payment_table->item(0, 8);
-        ___qtablewidgetitem21->setText(QApplication::translate("Bill", "\346\213\276", 0));
-        QTableWidgetItem *___qtablewidgetitem22 = payment_table->item(0, 10);
-        ___qtablewidgetitem22->setText(QApplication::translate("Bill", "\345\205\203", 0));
+        QTableWidgetItem *___qtablewidgetitem18 = payment_table->item(0, 1);
+        ___qtablewidgetitem18->setText(QApplication::translate("Bill", "0", 0));
+        QTableWidgetItem *___qtablewidgetitem19 = payment_table->item(0, 2);
+        ___qtablewidgetitem19->setText(QApplication::translate("Bill", "\344\270\207", 0));
+        QTableWidgetItem *___qtablewidgetitem20 = payment_table->item(0, 3);
+        ___qtablewidgetitem20->setText(QApplication::translate("Bill", "0", 0));
+        QTableWidgetItem *___qtablewidgetitem21 = payment_table->item(0, 4);
+        ___qtablewidgetitem21->setText(QApplication::translate("Bill", "\344\273\237", 0));
+        QTableWidgetItem *___qtablewidgetitem22 = payment_table->item(0, 5);
+        ___qtablewidgetitem22->setText(QApplication::translate("Bill", "0", 0));
+        QTableWidgetItem *___qtablewidgetitem23 = payment_table->item(0, 6);
+        ___qtablewidgetitem23->setText(QApplication::translate("Bill", "\344\275\260", 0));
+        QTableWidgetItem *___qtablewidgetitem24 = payment_table->item(0, 7);
+        ___qtablewidgetitem24->setText(QApplication::translate("Bill", "0", 0));
+        QTableWidgetItem *___qtablewidgetitem25 = payment_table->item(0, 8);
+        ___qtablewidgetitem25->setText(QApplication::translate("Bill", "\346\213\276", 0));
+        QTableWidgetItem *___qtablewidgetitem26 = payment_table->item(0, 9);
+        ___qtablewidgetitem26->setText(QApplication::translate("Bill", "0", 0));
+        QTableWidgetItem *___qtablewidgetitem27 = payment_table->item(0, 10);
+        ___qtablewidgetitem27->setText(QApplication::translate("Bill", "\345\205\203", 0));
         payment_table->setSortingEnabled(__sortingEnabled4);
 
 
         const bool __sortingEnabled5 = table7->isSortingEnabled();
         table7->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem23 = table7->item(0, 0);
-        ___qtablewidgetitem23->setText(QApplication::translate("Bill", "\346\211\230\350\277\220\345\215\217\350\256\256", 0));
+        QTableWidgetItem *___qtablewidgetitem28 = table7->item(0, 0);
+        ___qtablewidgetitem28->setText(QApplication::translate("Bill", "\346\211\230\350\277\220\345\215\217\350\256\256", 0));
         table7->setSortingEnabled(__sortingEnabled5);
 
 
         const bool __sortingEnabled6 = expense_table->isSortingEnabled();
         expense_table->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem24 = expense_table->item(0, 0);
-        ___qtablewidgetitem24->setText(QApplication::translate("Bill", "\350\277\220\350\264\271\357\274\210\345\205\203\357\274\211", 0));
-        QTableWidgetItem *___qtablewidgetitem25 = expense_table->item(0, 1);
-        ___qtablewidgetitem25->setText(QApplication::translate("Bill", "\351\200\201\350\264\247\350\264\271\357\274\210\345\205\203\357\274\211", 0));
-        QTableWidgetItem *___qtablewidgetitem26 = expense_table->item(0, 2);
-        ___qtablewidgetitem26->setText(QApplication::translate("Bill", "\345\205\266\345\256\203\350\264\271\347\224\250\357\274\210\345\205\203\357\274\211", 0));
-        QTableWidgetItem *___qtablewidgetitem27 = expense_table->item(0, 3);
-        ___qtablewidgetitem27->setText(QApplication::translate("Bill", "\346\217\220\350\264\247\350\264\271\357\274\210\345\205\203\357\274\211", 0));
-        QTableWidgetItem *___qtablewidgetitem28 = expense_table->item(0, 4);
-        ___qtablewidgetitem28->setText(QApplication::translate("Bill", "\344\277\235\351\231\251\350\264\271\357\274\210\345\205\203\357\274\211", 0));
-        QTableWidgetItem *___qtablewidgetitem29 = expense_table->item(0, 5);
-        ___qtablewidgetitem29->setText(QApplication::translate("Bill", "\345\220\210\350\256\241\357\274\210\345\205\203\357\274\211", 0));
+        QTableWidgetItem *___qtablewidgetitem29 = expense_table->item(0, 0);
+        ___qtablewidgetitem29->setText(QApplication::translate("Bill", "\350\277\220\350\264\271\357\274\210\345\205\203\357\274\211", 0));
+        QTableWidgetItem *___qtablewidgetitem30 = expense_table->item(0, 1);
+        ___qtablewidgetitem30->setText(QApplication::translate("Bill", "\351\200\201\350\264\247\350\264\271\357\274\210\345\205\203\357\274\211", 0));
+        QTableWidgetItem *___qtablewidgetitem31 = expense_table->item(0, 2);
+        ___qtablewidgetitem31->setText(QApplication::translate("Bill", "\345\205\266\345\256\203\350\264\271\347\224\250\357\274\210\345\205\203\357\274\211", 0));
+        QTableWidgetItem *___qtablewidgetitem32 = expense_table->item(0, 3);
+        ___qtablewidgetitem32->setText(QApplication::translate("Bill", "\346\217\220\350\264\247\350\264\271\357\274\210\345\205\203\357\274\211", 0));
+        QTableWidgetItem *___qtablewidgetitem33 = expense_table->item(0, 4);
+        ___qtablewidgetitem33->setText(QApplication::translate("Bill", "\344\277\235\351\231\251\350\264\271\357\274\210\345\205\203\357\274\211", 0));
+        QTableWidgetItem *___qtablewidgetitem34 = expense_table->item(0, 5);
+        ___qtablewidgetitem34->setText(QApplication::translate("Bill", "\345\220\210\350\256\241\357\274\210\345\205\203\357\274\211", 0));
         expense_table->setSortingEnabled(__sortingEnabled6);
 
 
         const bool __sortingEnabled7 = location_table->isSortingEnabled();
         location_table->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem30 = location_table->item(0, 0);
-        ___qtablewidgetitem30->setText(QApplication::translate("Bill", "\346\267\261\345\234\263 \350\207\263", 0));
+        QTableWidgetItem *___qtablewidgetitem35 = location_table->item(0, 0);
+        ___qtablewidgetitem35->setText(QApplication::translate("Bill", "\346\267\261\345\234\263 \350\207\263", 0));
         location_table->setSortingEnabled(__sortingEnabled7);
 
 
         const bool __sortingEnabled8 = date_table->isSortingEnabled();
         date_table->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem31 = date_table->item(0, 0);
-        ___qtablewidgetitem31->setText(QApplication::translate("Bill", "20", 0));
-        QTableWidgetItem *___qtablewidgetitem32 = date_table->item(0, 2);
-        ___qtablewidgetitem32->setText(QApplication::translate("Bill", "\345\271\264", 0));
-        QTableWidgetItem *___qtablewidgetitem33 = date_table->item(0, 4);
-        ___qtablewidgetitem33->setText(QApplication::translate("Bill", "\346\234\210", 0));
-        QTableWidgetItem *___qtablewidgetitem34 = date_table->item(0, 6);
-        ___qtablewidgetitem34->setText(QApplication::translate("Bill", "\346\227\245", 0));
+        QTableWidgetItem *___qtablewidgetitem36 = date_table->item(0, 0);
+        ___qtablewidgetitem36->setText(QApplication::translate("Bill", "20", 0));
+        QTableWidgetItem *___qtablewidgetitem37 = date_table->item(0, 2);
+        ___qtablewidgetitem37->setText(QApplication::translate("Bill", "\345\271\264", 0));
+        QTableWidgetItem *___qtablewidgetitem38 = date_table->item(0, 4);
+        ___qtablewidgetitem38->setText(QApplication::translate("Bill", "\346\234\210", 0));
+        QTableWidgetItem *___qtablewidgetitem39 = date_table->item(0, 6);
+        ___qtablewidgetitem39->setText(QApplication::translate("Bill", "\346\227\245", 0));
         date_table->setSortingEnabled(__sortingEnabled8);
 
 
         const bool __sortingEnabled9 = document_maker_table->isSortingEnabled();
         document_maker_table->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem35 = document_maker_table->item(0, 0);
-        ___qtablewidgetitem35->setText(QApplication::translate("Bill", "\345\210\266\345\215\225\344\272\272\357\274\232", 0));
+        QTableWidgetItem *___qtablewidgetitem40 = document_maker_table->item(0, 0);
+        ___qtablewidgetitem40->setText(QApplication::translate("Bill", "\345\210\266\345\215\225\344\272\272\357\274\232", 0));
         document_maker_table->setSortingEnabled(__sortingEnabled9);
 
 
         const bool __sortingEnabled10 = consignee_table->isSortingEnabled();
         consignee_table->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem36 = consignee_table->item(0, 0);
-        ___qtablewidgetitem36->setText(QApplication::translate("Bill", "\346\217\220\350\264\247\344\272\272\357\274\232", 0));
+        QTableWidgetItem *___qtablewidgetitem41 = consignee_table->item(0, 0);
+        ___qtablewidgetitem41->setText(QApplication::translate("Bill", "\346\217\220\350\264\247\344\272\272\357\274\232", 0));
         consignee_table->setSortingEnabled(__sortingEnabled10);
 
 
         const bool __sortingEnabled11 = id_table->isSortingEnabled();
         id_table->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem37 = id_table->item(0, 0);
-        ___qtablewidgetitem37->setText(QApplication::translate("Bill", "\345\215\225\345\217\267\357\274\232", 0));
+        QTableWidgetItem *___qtablewidgetitem42 = id_table->item(0, 0);
+        ___qtablewidgetitem42->setText(QApplication::translate("Bill", "\345\215\225\345\217\267\357\274\232", 0));
         id_table->setSortingEnabled(__sortingEnabled11);
 
         label_2->setText(QApplication::translate("Bill", "<html><head/><body><p><span style=\" color:#7d7d7d;\">\346\211\230\350\277\220\344\272\272\347\233\226\347\253\240\357\274\232</span></p><p><span style=\" color:#7d7d7d;\">\347\255\276\345\220\215\357\274\232</span></p></body></html>", 0));
