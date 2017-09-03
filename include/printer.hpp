@@ -5,11 +5,14 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <windows.h>
+#include <tchar.h>
+#include <stdio.h>
 using namespace std;
 
 class printer{
 public:
-	printer(string computer_name, string printer_name);
+	printer(string printer_name);
 
 	~printer();
 

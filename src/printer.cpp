@@ -1,8 +1,14 @@
 #include "../include/printer.hpp"
 #include <iostream>
 
-printer::printer(string computer_name, string printer_name)
-:computer_name(computer_name), printer_name(printer_name) {}
+printer::printer(string printer_name)
+:printer_name(printer_name) {
+	TCHAR nameBuf[MAX_COMPUTERNAME_LENGTH + 2];
+	DWORD nameBufSize;
+	nameBufSize = sizeof nameBuf - 1;
+	GetComputerName(nameBuf, &nameBufSize);
+	computer_name = nameBuf;
+}
 
 printer::~printer() {}
 
