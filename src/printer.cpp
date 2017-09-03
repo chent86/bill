@@ -1,4 +1,5 @@
 #include "../include/printer.hpp"
+#include <iostream>
 
 printer::printer(string computer_name, string printer_name)
 :computer_name(computer_name), printer_name(printer_name) {}
@@ -11,7 +12,7 @@ void printer::print(form& m_form) {
 	string p_location = "        ";
 	string p_date = "      00    00   00";
 
-	string p_receiver_company = "                                            ";
+	string p_receiver_company = "                                            ";		 
 	string p_receiver_landline_telephone = "                    ";
     string p_receiver_address = "                                            ";
     string p_receiver_telephone = "                    ";
@@ -56,15 +57,14 @@ void printer::print(form& m_form) {
 
     p_date[17] = m_form.date.day[0];
     p_date[18] = m_form.date.day[1];
-
-    p_receiver_company = m_form.receiver.company + p_receiver_company.substr(0,p_receiver_company.length()-m_form.receiver.company.length());
+    p_receiver_company = m_form.receiver.company + p_receiver_company.substr(0,p_receiver_company.length()-m_form.receiver.company.length()/3*2);
     p_receiver_landline_telephone = m_form.receiver.landline_telephone + p_receiver_landline_telephone.substr(0,p_receiver_landline_telephone.length()-m_form.receiver.landline_telephone.length()); 
-    p_receiver_address = m_form.receiver.address + p_receiver_address.substr(0,p_receiver_address.length()-m_form.receiver.address.length());
+    p_receiver_address = m_form.receiver.address + p_receiver_address.substr(0,p_receiver_address.length()-m_form.receiver.address.length()/3*2);
     p_receiver_telephone = m_form.receiver.telephone + p_receiver_telephone.substr(0,p_receiver_telephone.length()-m_form.receiver.telephone.length());
 
-    p_sender_company = m_form.sender.company + p_sender_company.substr(0,p_sender_company.length()-m_form.sender.company.length());
+    p_sender_company = m_form.sender.company + p_sender_company.substr(0,p_sender_company.length()-m_form.sender.company.length()/3*2);
     p_sender_landline_telephone = m_form.sender.landline_telephone + p_sender_landline_telephone.substr(0,p_sender_landline_telephone.length()-m_form.sender.landline_telephone.length()); 
-    p_sender_address = m_form.sender.address + p_sender_address.substr(0,p_sender_address.length()-m_form.sender.address.length());
+    p_sender_address = m_form.sender.address + p_sender_address.substr(0,p_sender_address.length()-m_form.sender.address.length()/3*2);
     p_sender_telephone = m_form.sender.telephone + p_sender_telephone.substr(0,p_sender_telephone.length()-m_form.sender.telephone.length());
 
     p_note = m_form.note + p_note.substr(0,p_note.length()-m_form.note.length());
@@ -155,10 +155,10 @@ void printer::print(form& m_form) {
 	format.push_back(p_consignee);
 
 	for(int i = 0; i < format.size(); i++)
-		file << format[i];    
+		file << format[i];  
 
 	file.close();
-	//system("PowerShell -Command \"& {get-content 1.txt -encoding utf8 | set-content 2.txt -encoding unicode}\"");
-	string tmp = "print /d:\\\\" + computer_name + "\\" + printer_name + " 1.txt";
+	system("PowerShell -Command \"& {get-content 1.txt -encoding utf8 | set-content 2.txt -encoding unicode}\"");
+	string tmp = "print /d:\\\\" + computer_name + "\\" + printer_name + " 2.txt";
 	system(tmp.c_str());
 }
